@@ -1,5 +1,4 @@
 # go-sockets
----
 
 An attempt to make a connection between client and server through tcp socket.
 
