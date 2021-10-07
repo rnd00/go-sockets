@@ -16,11 +16,6 @@ type FnCall struct {
 	Data     []interface{} `json:"data"`
 }
 
-// Data here will be used for FnCall struct if running on 2-step
-type Data struct {
-	Data []interface{} `json:"data"`
-}
-
 // ParseFnCall is a json.Unmarshal wrapper
 func ParseFnCall(data []byte) {
 	var r FnCall
@@ -45,15 +40,4 @@ func FunctionCaller(data FnCall) {
 	default:
 		log.Printf("Unrecognized function (%s) was called!", fName)
 	}
-}
-
-// ParseData is a json.Unmarshal wrapper for 'Data'
-func ParseData(data []byte) Data {
-	var n Data
-	err := json.Unmarshal(data, &n)
-	if err != nil {
-		log.Println(err)
-	}
-
-	return n
 }
