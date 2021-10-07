@@ -40,11 +40,6 @@ func main() {
 	}
 }
 
-type acknowledge struct {
-	Cmd  string `json:"cmd"`
-	Size int    `json:"size"`
-}
-
 func handleConnection(c net.Conn) {
 	buffer, e := bufio.NewReader(c).ReadBytes('\n')
 
